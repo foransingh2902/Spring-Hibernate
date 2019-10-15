@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
+
+<!-- load the properties file sport.properties -->
+<context:property-placeholder location="classpath:sport.properties"/>	
+    <!-- Define your beans here -->
+    
+    <!-- define the dependency -->
+    
+    <bean id="myFortune"
+    		class="com.luv2code.springdemo.HappyFortuneService">
+    	</bean>
+    
+    <!--  the id is like an alias -->
+ 	<bean id="myCoach"
+ 		class="com.luv2code.springdemo.TrackCoach">
+ 		<!-- or use BaseballCoach instead of TrackCoach -->
+ 		<!-- fully qualified class name of implementation class -->	 	
+ 		<!-- Set up constructor injection -->
+ 		<constructor-arg ref="myFortune"></constructor-arg>	
+ 	</bean>
+
+<!-- set up constructor injection -->
+ <!--  
+    <bean id="myCoach"
+        class="com.luv2code.springdemo.FootballCoach">         
+    </bean>
+    -->   
+    
+    <bean id="fortuneService11"
+    		class="com.luv2code.springdemo.HappyFortuneService">
+    	</bean>
+    <!-- set up setter injection -->
+    
+    <bean id="myCricketCoach" class="com.luv2code.springdemo.CricketCoach">
+    <property name="tuuktuuk" ref="fortuneService11"></property>
+    <!-- inject literal values ..........use  value="the value you want to hard code"        -->
+    <property name="emailAddress" value="${foo_email}"></property>
+    <property name="team" value="${foo_team}"></property>
+    </bean>
+    
+    <!-- name="fortuneService" will call setFortuneService() -->
+ 
+</beans>
+
+
+
+
+
