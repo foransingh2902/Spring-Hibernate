@@ -30,7 +30,8 @@ public class MyDemoLoggingAspect {
 		// can have any name for method
 	}
 
-
+	
+	
 	// Apply the pointcut
 
 //	@Before("forDaoPackage()")
