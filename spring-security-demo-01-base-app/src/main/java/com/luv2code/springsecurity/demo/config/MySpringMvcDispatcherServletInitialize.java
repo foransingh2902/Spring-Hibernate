@@ -3,6 +3,17 @@ package com.luv2code.springsecurity.demo.config;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 public class MySpringMvcDispatcherServletInitialize extends AbstractAnnotationConfigDispatcherServletInitializer {
+	/*
+	 * Implementations are required to implement:
+	 * 
+	 * getRootConfigClasses() -- for "root" application context (non-web
+	 * infrastructure) configuration. getServletConfigClasses() -- for
+	 * DispatcherServlet application context (Spring MVC infrastructure)
+	 * configuration. public abstract class
+	 * AbstractAnnotationConfigDispatcherServletInitializer extends
+	 * AbstractDispatcherServletInitializer AbstractDispatcherServletInitializer
+	 * gives the method getServletMappings
+	 */
 
 	/*
 	 * DispatcherServlet is Spring MVC's implementation of the front controller
