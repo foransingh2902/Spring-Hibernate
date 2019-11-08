@@ -52,7 +52,10 @@ public class EmployeeDAOJpaImpl implements EmployeeDAO {
 
 	@Override
 	public void deleteById(int theId) {
-		// TODO Auto-generated method stub
+		// delete object with primary key
+		Query theQuery = entityManager.createQuery("delete from Employee where id=:employeeId");
+		theQuery.setParameter("employeeId", theId);
+		theQuery.executeUpdate();
 
 	}
 
