@@ -43,9 +43,14 @@ public class EmployeeDAOJpaImpl implements EmployeeDAO {
 	@Override
 	public void save(Employee theEmployee) {
 		// save or update the employee. If id==0 then insert/save else update
+		// will return the updated Employee for us.
 		Employee dbEmployee = entityManager.merge(theEmployee);
 
 		// update with id from db... so we can get generated id for save/insert
+		// this will be used by our rest api to returning the generated ID.
+		// This is considered good practice based on your app requirements. That is if
+		// you want to see the updated database ID in the response. But it is not
+		// mandatory.
 		theEmployee.setId(dbEmployee.getId());
 
 	}
